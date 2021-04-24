@@ -16,17 +16,16 @@
 }
 
 .mainText {
-    display: flex;
-    padding: 2.1rem;
-    margin-left: 10rem;
+    align-items: center;
+    padding: 2rem;
     margin-right: 2rem;
-    max-width: 40rem;
+    margin-left: 2rem;
     max-height: 10rem;
     background-color: white;
     opacity: 0.6;
     border-radius: 50px;
     font-size: 20px;
-    margin-top: 40rem;
+    margin-top: 45rem;
     overflow-y: auto;
     overflow-x: hidden;
 }

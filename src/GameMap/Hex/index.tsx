@@ -1,6 +1,8 @@
 import React, {useCallback} from 'react';
+import { observer } from "mobx-react-lite"
 // @ts-ignore
 import { Hexagon } from 'react-hexgrid';
+import rootStore from "../../store/root";
 
 export type THexProps = {
     q: number,
@@ -11,15 +13,27 @@ export type THexProps = {
     children?: any
 };
 
-export function GameHex(props: THexProps) {
+export const GameHex = observer((props: THexProps) => {
     const onClick = useCallback(
         () => {
-            props.event && props.event();
+            if (rootStore.availableMap.some(mapHex => props.q === mapHex[0] && props.r === mapHex[1] && props.s === mapHex[2])) {
+                rootStore.openHex([props.q,props.r,props.s])
+                props.event && props.event();
+            }
         },
         [props],
     );
 
-    return <Hexagon q={props.q} r={props.r} s={props.s} fill={props.type} draggable={false} onClick={onClick}>
+    const available = rootStore.availableMap.some(mapHex => props.q === mapHex[0] && props.r === mapHex[1] && props.s === mapHex[2]);
+    const known = rootStore.knownMap.some(mapHex => props.q === mapHex[0] && props.r === mapHex[1] && props.s === mapHex[2]);
+    let fill;
+    if (available) {
+        fill = 'unknown';
+    }
+    if (known) {
+        fill = props.type;
+    }
+    return <Hexagon q={props.q} r={props.r} s={props.s} fill={fill} draggable={false} onClick={onClick}>
         {props.children}
     </Hexagon>
-}
+});

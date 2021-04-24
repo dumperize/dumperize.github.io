@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { StageContext, VariantContext } from "./Context";
 import { VARIANT_STAGE } from "../../configGame/variantStage";
 import { getStages } from "../../configGame/stages";
+import { GameMap } from "../../GameMap";
 
 
 export const Cycle = () => {
@@ -30,7 +31,7 @@ export const Cycle = () => {
         }}>
             <VariantContext.Provider value={{ variant, setVariant }}>
                 {stage.isMap
-                    ? (<>map</>)
+                    ? (<GameMap />)
                     : (
                         <div>
                             {

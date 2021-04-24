@@ -1,3 +1,4 @@
+import rootStore from '../store/root';
 import { CHARACTER } from './character';
 import { POSITIONS } from './position';
 
@@ -66,12 +67,12 @@ export const stages: Stage[] = [
         {
           text: 'Ты не самый гостеприимный хозяин!',
           nextStage: 2,
-          effect: () => { console.log('effect1') },
+          effect: rootStore.addStealth,
         },
         {
           text: 'Кто сказал, что я прячусь?',
           nextStage: 2,
-          effect: () => { console.log('effect2') },
+          effect: rootStore.addStraight,
         },
       ],
     },
@@ -80,7 +81,7 @@ export const stages: Stage[] = [
     id: 2,
     lines: [
       {
-        image: '/images/tawern-bg.jpg',
+        image: '/images/tawern-bg.jpeg',
         text: 'Дандерн сел напротив эльфийки.',
       },
       {
@@ -88,7 +89,7 @@ export const stages: Stage[] = [
         text: 'Давай без прелюдий. Зачем ты здесь, Тауриэль.',
       },
       {
-        image: '/images/tawern-bg.jpg',
+        image: '/images/tawern-bg.jpeg',
         text: `Тауриэль задумалась: Дандерн считает себя самым умным вожаком. Если подыграть ему сделать вид, что он раскрыл ее, информации можно выведать еще больше.
         Она улыбнулся.`,
       },
@@ -109,12 +110,12 @@ export const stages: Stage[] = [
         {
           text: 'Сколько разбойников от Тишинской глади сейчас орудует в лесах?',
           nextStage: 3,
-          effect: () => { },
+          effect: rootStore.addStraight,
         },
         {
           text: 'Как ты объяснишь, что в лесу нашли наконечник стрелы из Тишинской глади?',
           nextStage: 4,
-          effect: () => { },
+          effect: rootStore.addStealth,
         },
       ]
     }
@@ -125,22 +126,22 @@ export const stages: Stage[] = [
       {
         character: CHARACTER.ELF_1,
         text: 'Ты же знаешь, что такую информацию никто тебе не даст даром.',
-        image: '/images/tawern-d.jpg',
+        image: '/images/tawerna-d.jpg',
       },
       {
         text: `Тауриэль демонстративно кинула мешочек с золотом на стол.\n
         Дандерн ухмыльнулся.
         `,
-        image: '/images/tawern-bg.jpg',
+        image: '/images/tawern-bg.jpeg',
       },
       {
         text: `Вы использовали неосторожную стратегию, за которую пришлось заплатить. В дальнейшем вам нужно будет восполнить свое золото из казны.`,
-        image: '/images/tawern-bg.jpg',
+        image: '/images/tawern-bg.jpeg',
       },
       {
         character: CHARACTER.ELF_1,
         text: 'Тебе стоит побеседовать с Лонбайтом. Кто как не он знает, что творится в его лесу?',
-        image: '/images/tawern-d.jpg',
+        image: '/images/tawerna-d.jpg',
       },
     ]
   },
@@ -150,24 +151,24 @@ export const stages: Stage[] = [
       {
         character: CHARACTER.ELF_1,
         text: 'Возможно Лонбайт сможет ответить на твои вопросы?',
-        image: '/images/tawern-d.jpg',
+        image: '/images/tawerna-d.jpg',
       },
       {
         text: `Эльфийка нахмурилась. Ей не нравился намек вожака, что за разбоями в Изумрудном лесу стоит его хозяин. Но с другой стороны это была первая зацепка и глупо было от нее отказываться. Возможно Лонбайт и правда прояснит всю ситуацию.`,
-        image: '/images/tawern-bg.jpg',
+        image: '/images/tawern-bg.jpeg',
       },
       {
         text: `Она уже собралась уходить, но Дандерн кинул ей напоследок:`,
-        image: '/images/tawern-bg.jpg',
+        image: '/images/tawern-bg.jpeg',
       },
       {
         character: CHARACTER.ELF_1,
         text: 'Ты же знаешь, что врагов нужно искать не всегда среди злодеев?',
-        image: '/images/tawern-d.jpg',
+        image: '/images/tawerna-d.jpg',
       },
       {
         text: `С этим словами он ушел за новой пинтой эля.`,
-        image: '/images/tawern-bg.jpg',
+        image: '/images/tawern-bg.jpeg',
       },
     ]
   },
@@ -283,12 +284,12 @@ export const stages: Stage[] = [
         {
           text: 'Сказать правду о встрече с Дендером.',
           nextStage: 8,
-          effect: () => { },
+          effect: rootStore.addStraight,
         },
         {
           text: 'Уйти от ответа',
           nextStage: 9,
-          effect: () => { },
+          effect: rootStore.addStealth,
         }
       ]
     }

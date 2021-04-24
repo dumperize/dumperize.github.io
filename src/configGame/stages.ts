@@ -1,6 +1,5 @@
 import rootStore from '../store/root';
 import { CHARACTER } from './character';
-import { POSITIONS } from './position';
 
 export interface Line {
   character?: CHARACTER,
@@ -23,6 +22,7 @@ export interface ChoiceBlock {
 export interface Stage {
   id: number,
   lines?: Line[],
+  nextStage?: number,
   choices?: ChoiceBlock,
   isMap?: boolean,
 }
@@ -35,9 +35,17 @@ export const stages: Stage[] = [
         image: '/images/map.jpg',
         text: `Тауриэль держала карту Северной долины.\n
         Впереди предстояло слишком много работы: допросить всех подозреваемых, сложить все пазлы в одну картинку и при это остаться не раскрытой.
-        \n\n
+        `,
+      },
+      {
+        image: '/images/map.jpg',
+        text: `
         В такие моменты она с благодарностью вспоминала отца: ведь именно он, в свое время, научил ее мыслить логически. Любая загадка и головоломка - открытая книга для нее.
-        \n\n
+        `,
+      },
+      {
+        image: '/images/map.jpg',
+        text: `
         Взгляд снова упал на карту. 
         `,
       },
@@ -47,7 +55,12 @@ export const stages: Stage[] = [
         Эльфийка зашла в паб.
         \n\n
         Гул голосов раскатывался по помещению, что не могло не сыграть ей на руку. Она выбрала самое незаметное место в углу и заняла выжидательную позицию.
-        \n\n
+        
+        `,
+      },
+      {
+        image: '/images/tawern-bg.jpeg',
+        text: `
         Дандерна нигде не было. Это немного смущало, ведь именно сейчас он должен был быть хотя бы наполовину пьян.
         \n\n
         Вдруг ее плеча кто-то коснулся.
@@ -85,6 +98,7 @@ export const stages: Stage[] = [
         text: 'Дандерн сел напротив эльфийки.',
       },
       {
+        character: CHARACTER.ELF_1,
         image: '/images/tawerna-d.jpg',
         text: 'Давай без прелюдий. Зачем ты здесь, Тауриэль.',
       },
@@ -94,10 +108,12 @@ export const stages: Stage[] = [
         Она улыбнулся.`,
       },
       {
+        character: CHARACTER.TAURIEL,
         image: '/images/tawerna-t.jpg',
         text: `Что ты знаешь о нападениях в Изумрудном лесе?`,
       },
       {
+        character: CHARACTER.ELF_1,
         image: '/images/tawerna-d.jpg',
         text: `Не более, чем все. Это не объясняет твоего нахождения здесь. Тебя наняли авроры долины?`,
       },
@@ -293,6 +309,433 @@ export const stages: Stage[] = [
         }
       ]
     }
+  },
+  {
+    id: 8,
+    lines: [
+      {
+        character: CHARACTER.TAURIEL,
+        text: 'Я была в таверне Тишинской глади и говорила с вожаком. Он намекнул, что Лонбайт в курсе всего происходящего в лесу.',
+        image: '/images/elfGirlForest.jpeg',
+      },
+    ],
+    nextStage: 10,
+  },
+  {
+    id: 9,
+    lines: [
+      {
+        character: CHARACTER.TAURIEL,
+        text: 'У меня есть свои источники.',
+        image: '/images/elfGirlForest.jpeg',
+      },
+    ],
+    nextStage: 10,
+  },
+  {
+    id: 10,
+    lines: [
+      {
+        image: '/images/forest.jpeg',
+        text: 'На главной дороге леса послышался шум колесницы и друзья быстро спрятались за дерево.Все остальное произошло за считанные секунды.',
+      },
+      {
+        image: '/images/forest.jpeg',
+        text: 'С верхушки деревьев полетели стрелы, моментально поразив всех пассажиров.Трое мужчин тут же спустились, послышался звук рассыпающегося золота.',
+      },
+      {
+        image: '/images/forest.jpeg',
+        text: 'Тауриэль прицелилась и ее стрела попала в ногу одного из грабителей.',
+      },
+      {
+        image: '/images/forest.jpeg',
+        text: 'Двое других, схватив вещи убитых, скрылись из виду, оставляя своего соучастника на суд Тауриэль и Руила.',
+      },
+      {
+        image: '/images/forest.jpeg',
+        text: 'Эльфийка подбежала к раненому, на ходу подмечая, что в убитых снова были стрелы из Тишинской глади.'
+      },
+      {
+        character: CHARACTER.TAURIEL,
+        image: '/images/elfGirlForest.jpeg',
+        text: `Кто ты и откуда? Отвечай!`,
+      },
+      {
+        image: '/images/forest.jpeg',
+        text: 'Мужчина отвечал неразборчиво, но что - то эльфийка все таки смогла услышать.',
+      },
+      {
+        character: CHARACTER.ELF_4,
+        image: '/images/2 локация_Лес_3.jpeg',
+        text: `Меня зовут Эльгорт.`
+      },
+      {
+        character: CHARACTER.TAURIEL,
+        image: '/images/elfGirlForest.jpeg',
+        text: `И кто тебя сюда отправил, Эльгорт.`
+      },
+      {
+        image: '/images/forest.jpeg',
+        text: 'Он ничего не ответил, просто продолжал держаться за рану.',
+      },
+      {
+        character: CHARACTER.ELF_2,
+        image: '/images/forest-r.jpg',
+        text: 'Ты же понимаешь, что если ты не ответишь, мне не жалко будет закончить ее работу? И после этих слов он приставил меч к его горлу.',
+      },
+      {
+        image: '/images/forest.jpeg',
+        text: 'Эльгорт понял, что у него нет шансов спастись, а может он просто не отличался воровской честностью, поэтому тихо ответил.'
+      },
+      {
+        character: CHARACTER.ELF_4,
+        image: '/images/2 локация_Лес_3.jpeg',
+        text: `Это все Лонбайт! Он закупает стрелы в Тишинской глади, чтобы подставить их вожака.`
+      },
+      {
+        character: CHARACTER.TAURIEL,
+        image: '/images/elfGirlForest.jpeg',
+        text: `Зачем ему это нужно?`
+      },
+      {
+        character: CHARACTER.ELF_4,
+        image: '/images/2 локация_Лес_3.jpeg',
+        text: `Не знаю…`
+      },
+      {
+        image: '/images/forest.jpeg',
+        text: 'Руил чуть сильнее надавил на меч, а у Эльгорта показалась небольшая капля крови под ним.',
+      },
+      {
+        character: CHARACTER.ELF_4,
+        image: '/images/2 локация_Лес_3.jpeg',
+        text: `Я правда не знаю! Мне сказали просто обворовывать богачей на дороге леса.Я больше ничего не знаю.`
+      },
+      {
+        character: CHARACTER.ELF_2,
+        image: '/images/forest-r.jpg',
+        text: `Тогда ты нам больше не нужен.Тауриэль, закончи с ним`
+      },
+    ],
+    choices: {
+      text: 'Эльфийка смотрела на перепуганного разбойника. Перед ней стоял выбор.',
+      character: CHARACTER.TAURIEL,
+      image: '/images/elfGirlForest.jpeg',
+      list: [
+        {
+          text: 'Убить разбойника. Руил запомнит вашу хладнокровность.',
+          nextStage: 11,
+          effect: () => { },
+        },
+        {
+          text: 'Пощадить и отпустить его. Горожане узнают о том, что авроры отправили шпионов в лес.',
+          nextStage: 12,
+          effect: () => { },
+        }
+      ]
+    },
+  },
+  {
+
+    id: 11,
+    lines: [
+      {
+        character: CHARACTER.TAURIEL,
+        text: `Тауриэль натянула стрелу и выпустила ее в сердце вора. Ни один мускул не дрогнул на ее лице. Она просто шла к своей цели.
+          / n Но где- то в глубине души, ее начало пожирать разочарование. 
+/ n Она не могла поверить, что справедливый Лонбайт оказался последним предателем, приславшим сюда глупого разбойника.
+`,
+        image: '/images/elfGirlForest.jpeg',
+      },
+    ],
+    nextStage: 13,
+  },
+  {
+
+    id: 12,
+    lines: [
+      {
+        character: CHARACTER.TAURIEL,
+        text: 'Пусть уходит, я не хочу даже пачкать стрелы. И обязательно расскажи все, что лес теперь под охраной.',
+        image: '/images/elfGirlForest.jpeg',
+      },
+      {
+        image: '/images/forest.jpeg',
+        text: 'Эльгорта не пришлось просить дважды. Хромая он скрылся между деревьев.'
+      },
+      {
+        image: '/images/forest.jpeg',
+        text: 'Тауриэль и Руил стояли посреди дороги и пытались осмыслить все, что сейчас произошло.'
+      },
+      {
+        image: '/images/forest.jpeg',
+        text: 'В телах убитых были стрелы Тишинской глади, богачей просто обокрали, а все нити напрямую вели к Лонбайту.'
+      },
+      {
+        image: '/images/forest.jpeg',
+        text: 'Руил взял эльфику за руку.'
+      },
+      {
+        character: CHARACTER.ELF_2,
+        image: '/images/forest-r.jpg',
+        text: 'Я знаю, что ты боишься в нем разочароваться. Но есть ли смысл оправдывать эльфийскую жестокость?',
+      },
+      {
+        image: '/images/forest.jpeg',
+        text: 'Тауриэль ничего не ответила.Все что она сейчас знала: следующий кого пронзит ее стрела, будет наказан за каждого убитого на этой дороге.'
+      },
+    ],
+    nextStage: 13,
+  },
+  {
+    id: 13,
+    lines: [
+      {
+        text: 'Тауриэль и Руил шли между скал, поднимаясь все выше. Им нужно было найти хижину Лонбайта.',
+        image: '/images/mountains-bg.jpeg',
+      },
+      {
+        text: `По легенде она находилась на вершине Холодной скалы, чтобы хозяин леса мог следить за всем, что находится внизу.
+\nНо еще никто и никогда там не был.Никто кроме самой Тауриэль.
+        `,
+        image: '/images/mountains-bg.jpeg',
+      },
+      {
+        text: 'Дорога была долгой и временами нудной.',
+        image: '/images/mountains-bg.jpeg',
+      },
+      {
+        text: 'Руил молчал, понимая, что Тауриэль полностью погружена в свои мысли. Он знал, что ее сердце уже давно занимал Лонбайт и поэтому его предательство Северной долины было убийственным для нее.',
+        image: '/images/mountains-bg.jpeg',
+      },
+      {
+        text: 'Спустя несколько часов за небольшой скалой показалась вершина хижины.',
+        image: '/images/mountains-bg.jpeg',
+      },
+      {
+        character: CHARACTER.ELF_2,
+        text: ' Ты уверена, что хочешь закончить это дело?',
+        image: '/images/mountains-r.jpg',
+      },
+      {
+        character: CHARACTER.TAURIEL,
+        text: 'У меня есть выбор? Я зайду одна, если не решу все через десять минут - заходи.',
+        image: '/images/mountains-t.jpg',
+      },
+      {
+        text: 'Руил лишь молча кивнул, а Тауриэль повернула ручку в хижину.',
+        image: '/images/mountains-bg.jpeg',
+      },
+      {
+        text: 'Лонбайт сидел за столом и изучал карты леса. Когда дверь открылась, мужчина даже не поднял головы, лишь тяжело вздохнул.',
+        image: '/images/house-bg.jpeg',
+      },
+      {
+        character: CHARACTER.ELF_3,
+        text: 'Если ты пришла сюда сама, значит поверила слухам.',
+        image: '/images/house-l.jpg',
+      }
+    ],
+    choices: {
+      text: 'Разве у меня был выбор…',
+      character: CHARACTER.TAURIEL,
+      image: '/images/house-t.jpg',
+      list: [
+        {
+          text: 'все говорят, что это твоих рук дело.',
+          nextStage: 14,
+          effect: rootStore.addStraight,
+        },
+        {
+          text: 'зачем только использовать стрелы Тишинской глади?',
+          nextStage: 14,
+          effect: rootStore.addStealth,
+        }
+      ]
+    }
+  },
+  {
+    id: 14,
+    lines: [
+      {
+        character: CHARACTER.ELF_3,
+        text: 'Наверное не все вещи так очевидны как нам кажется. И не всем, кто рядом стоит доверять.',
+        image: '/images/house-l.jpg',
+      },
+      {
+        character: CHARACTER.TAURIEL,
+        text: 'Ты о себе сейчас говоришь?',
+        image: '/images/house-t.jpg',
+      },
+      {
+        text: 'Дверь резко распахнулась. На пороге стоял разъяренный Руил.',
+        image: '/images/house-bg.jpeg',
+      },
+      {
+        character: CHARACTER.TAURIEL,
+        text: 'Ты рано…',
+        image: '/images/house-t.jpg',
+      },
+      {
+        character: CHARACTER.ELF_2,
+        image: '/images/house-r.jpg',
+        text: 'Как раз во время.',
+      },
+      {
+        text: 'И после этих слов он поднял меч в ее сторону. ',
+        image: '/images/house-bg.jpeg',
+      },
+      {
+        text: `Тауриэль непонимающе перевела взгляд с Руила на Лонбайта, затем обратно.\n
+В эту же секунду из окна пролетела стрела, пронзив плечо хозяина леса.\n
+Эльфика кинулась к нему.Прижав рукой его рану она обратилась к своему некогда другу.
+        `,
+        image: '/images/house-bg.jpeg',
+      },
+      {
+        character: CHARACTER.TAURIEL,
+        text: 'Так это был ты? Ты организовывал нападения? Зачем?',
+        image: '/images/house-t.jpg',
+      },
+      {
+        character: CHARACTER.ELF_2,
+        image: '/images/house-r.jpg',
+        text: 'Затем что хозяин леса уже слишком долго занимал свой пост. А как еще можно подставить самого справедливого в Северной долине? Заставить людей в нем сомневаться.',
+      },
+      {
+        character: CHARACTER.TAURIEL,
+        text: 'И в лесу ты был не просто так?',
+        image: '/images/house-t.jpg',
+      },
+      {
+        character: CHARACTER.ELF_2,
+        image: '/images/house-r.jpg',
+        text: 'Моя дорогая, как только ты вышла из таверны, я уже знал куда тебя направили. Ты бы очень удивилась как легко подкупить авроров и вождей.',
+      },
+      {
+        character: CHARACTER.TAURIEL,
+        text: 'Я думала, ты мне помогаешь. Мы же столько всего прошли вместе.',
+        image: '/images/house-t.jpg',
+      },
+      {
+        character: CHARACTER.ELF_2,
+        image: '/images/house-r.jpg',
+        text: 'Мне просто нужно было найти его хижину.',
+      },
+      {
+        text: 'Он кивнул в сторону раненого Лонбайта.',
+        image: '/images/house-bg.jpeg',
+      },
+      {
+        character: CHARACTER.ELF_2,
+        image: '/images/house-r.jpg',
+        text: 'В глобальных вопросах нет места дружбе. Ничего личного.',
+      },
+      {
+        text: `Этих слов было достаточно эльфийке.\n
+Она не замедляясь вскинула лук, натягивая стрелу с тетивой. 
+        `,
+        image: '/images/house-bg.jpeg',
+      },
+      {
+        character: CHARACTER.ELF_2,
+        image: '/images/house-r.jpg',
+        text: 'Не самое лучшее решение, ведь я пришел сюда не один.',
+      },
+    ],
+    choices: {
+      character: CHARACTER.TAURIEL,
+      text: '',
+      image: '/images/house-t.jpg',
+      list: [
+        {
+          text: 'Все равно выстрелить',
+          nextStage: 15,
+          effect: rootStore.addStraight,
+        },
+        {
+          text: 'Подождать удобного момента',
+          nextStage: 16,
+          effect: rootStore.addStealth,
+        },
+      ]
+    }
+  },
+  {
+    id: 15,
+    lines: [
+      {
+        image: '/images/house-r.jpg',
+        text: `Лучник вне хижины окажется быстрее и смертельно ранит вас.\n
+Вы мертвы.Руил убьет Лонбайта и захватит власть над лесом.\n
+Игра для вас закончена.
+        `
+      },
+      {
+        image: '/images/house-r.jpg',
+        text: `Тауриэль запомнят как предателя, соучастника Лонбайта.Вас обоих обвинят в грабеже и все преступления повесят на ваши плечи.`
+      },
+    ]
+    /// FINISH!!
+  },
+  {
+    id: 15,
+    lines: [
+      {
+        image: '/images/house-r.jpg',
+        text: `Руил начал прохаживаться по хижине, рассматрива карты.\n
+Он был уверен в себе и своих действиях.
+        `
+      },
+      {
+        image: '/images/house-r.jpg',
+        text: `Тауриэль почувствовала как кто - то аккуратно тронул ее плечо.\n
+Лонбайт показал, что в его руке находится маленький нож, а затем кивнул в сторону окна.
+        `
+      },
+      {
+        image: '/images/house-r.jpg',
+        text: `Эльфийка заметила среди скал лучника.`
+      },
+      {
+        image: '/images/house-r.jpg',
+        text: `Она медленно кивнула головой.`
+      },
+      {
+        image: '/images/house-r.jpg',
+        text: `В следующее же мгновение Лонбайт метко запустил нож в лучника, а Тауриэль стрелу в спину Руилу.`
+      },
+      {
+        image: '/images/house-r.jpg',
+        text: `Мужчина упал на холодный пол хижины.`
+      },
+      {
+        character: CHARACTER.ELF_2,
+        image: '/images/house-r.jpg',
+        text: 'Что же Тауриэль, это было очень нечестно.',
+      },
+      {
+        character: CHARACTER.TAURIEL,
+        text: 'Ничего личного.',
+        image: '/images/house-t.jpg',
+      },
+      {
+        image: '/images/house-r.jpg',
+        text: `И девушка закончила то, что начала мгновением раньше.`
+      },
+      {
+        image: '/images/house-r.jpg',
+        text: `Поздравляем! Игра окончена.\n
+Вы смогли найти главного злодея и одержать над ним победу.
+        `
+      },
+      {
+        image: '/images/house-r.jpg',
+        text: `Тауриэль запомнят как бравого воина, готового бороться за правду.\n
+Ей было сложно пережить предательство лучшего друга, но она знала, что дальше ее и Северную долину ждет только светлое будущее.
+        `
+      },
+    ]
   }
 ];
 

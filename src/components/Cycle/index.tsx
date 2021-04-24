@@ -20,10 +20,10 @@ const Cycle = () => {
     }
     useEffect(() => {
         if (variant === VARIANT_STAGE.CHOISES && !stage.choices) {
-            setNextStage(stageID + 1);
+            setNextStage(stage.nextStage || stageID + 1);
         }
     }, [variant, stage, stageID]);
-    
+
     return (
         <StageContext.Provider value={{
             stageID,

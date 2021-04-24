@@ -16,9 +16,16 @@ export const StageAnswer = () => {
   }
   return (
     <>
+      <div className='mainText'>
+        {stage.choices?.character && <b style={{ textTransform: 'uppercase' }}>{stage.choices?.character}<br/></b>}
+        {stage.choices?.text}
+      </div>
       <img alt="" src={img} />
-      {choises.map(item => (
-        <button key={item.text} onClick={() => chooseAnswer(item)}>{item.text}</button>
+      {choises.map((item, index) => (
+          // @ts-ignore
+          <div className={ 'one' + index}>
+            <button className='button' key={item.text} onClick={() => chooseAnswer(item)}>{item.text}</button>
+          </div>
       ))}
     </>
   );

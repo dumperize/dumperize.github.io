@@ -31,6 +31,7 @@ export const StageText = () => {
                 <img alt="" className='img' src={lines[number].image} />
             </div>
             <div className='mainText'>
+                {lines[number].character && <b style={{ textTransform: 'uppercase' }}>{lines[number].character}<br/></b>}
                 {lines[number].text}
             </div>
         </div>

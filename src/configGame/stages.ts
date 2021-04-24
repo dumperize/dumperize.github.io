@@ -3,7 +3,7 @@ import { POSITIONS } from './position';
 
 export interface Line {
   character: CHARACTER,
-  position: POSITIONS,
+  image: string,
   text: string,
 }
 export interface Choice {
@@ -24,7 +24,7 @@ export const stages: Stage[] = [
     lines: [
       {
         character: CHARACTER.ELF_1,
-        position: POSITIONS.RIGHT,
+        image: '/images/forest.jpeg',
         text: `Тауриэль держала карту Северной долины.\n
         Впереди предстояло слишком много работы: допросить всех подозреваемых, сложить все пазлы в одну картинку и при это остаться не раскрытой.
         \n\n
@@ -35,7 +35,7 @@ export const stages: Stage[] = [
       },
       {
         character: CHARACTER.ELF_1,
-        position: POSITIONS.RIGHT,
+        image: '/images/forest.jpeg',
         text: `Тауриэль смотрела на паб. Именно здесь проводил свое время Дандерн. Он наверняка знал часть информации, осталось лишь заполучить ее.
         Эльфийка зашла в паб.
         \n\n
@@ -48,7 +48,7 @@ export const stages: Stage[] = [
       },
       {
         character: CHARACTER.ELF_1,
-        position: POSITIONS.RIGHT,
+        image: '/images/forest.jpeg',
         text: `Думаешь, если ты спрячешься в углу таверны, тебя никто не увидит?`,
       },
     ],
@@ -71,7 +71,7 @@ export const stages: Stage[] = [
     lines: [
       {
         character: CHARACTER.ELF_3,
-        position: POSITIONS.RIGHT,
+        image: '/images/forest.jpeg',
         text: 'Думаешь, если ты спрячешься в углу таверны, тебя никто не увидит?',
       },
     ],

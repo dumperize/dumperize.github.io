@@ -3,7 +3,6 @@ import { getStages } from '../../configGame/stages';
 import { VARIANT_STAGE } from '../../configGame/variantStage';
 import { StageContext, VariantContext } from '../Cycle/Context';
 import './styles.css';
-// import Logo from './assets/img/elfGirlTawern.jpeg';
 
 
 export const StageText = () => {
@@ -29,7 +28,7 @@ export const StageText = () => {
     return (
         <div className="root">
             <div className='wrapper'>
-                {/* <img className='img' src={Logo} /> */}
+                <img alt="" className='img' src={lines[number].image} />
             </div>
             <div className='mainText'>
                 {lines[number].text}

@@ -1,14 +1,16 @@
 import React from 'react';
+// import logo from './logo.svg';
 import './App.css';
-import {GameMap} from "./GameMap";
+import { Cycle } from './components/Cycle';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <GameMap />
-      </header>
-    </div>
+    // <div className="App">
+    //   <header className="App-header">
+        <Cycle />
+     
+    //   </header>
+    // </div>
   );
 }
 

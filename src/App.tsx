@@ -1,7 +1,7 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import { Cycle } from './components/Cycle';
+import Cycle from './components/Cycle';
 
 function App() {
   return (

@@ -1,3 +1,4 @@
+import rootStore from '../store/root';
 import { CHARACTER } from './character';
 import { POSITIONS } from './position';
 
@@ -66,12 +67,12 @@ export const stages: Stage[] = [
         {
           text: 'Ты не самый гостеприимный хозяин!',
           nextStage: 2,
-          effect: () => { console.log('effect1') },
+          effect: rootStore.addStealth,
         },
         {
           text: 'Кто сказал, что я прячусь?',
           nextStage: 2,
-          effect: () => { console.log('effect2') },
+          effect: rootStore.addStraight,
         },
       ],
     },
@@ -109,12 +110,12 @@ export const stages: Stage[] = [
         {
           text: 'Сколько разбойников от Тишинской глади сейчас орудует в лесах?',
           nextStage: 3,
-          effect: () => { },
+          effect: rootStore.addStraight,
         },
         {
           text: 'Как ты объяснишь, что в лесу нашли наконечник стрелы из Тишинской глади?',
           nextStage: 4,
-          effect: () => { },
+          effect: rootStore.addStealth,
         },
       ]
     }
@@ -283,12 +284,12 @@ export const stages: Stage[] = [
         {
           text: 'Сказать правду о встрече с Дендером.',
           nextStage: 8,
-          effect: () => { },
+          effect: rootStore.addStraight,
         },
         {
           text: 'Уйти от ответа',
           nextStage: 9,
-          effect: () => { },
+          effect: rootStore.addStealth,
         }
       ]
     }

@@ -7,6 +7,8 @@ export class RootStore {
     ruilCoolBloodedMemory;
 
     knownMap: [[number,number,number]];
+    nextLoc: [number,number,number];
+    blocked: [number,number,number][];
 
     constructor() {
         makeObservable(this, {
@@ -15,17 +17,22 @@ export class RootStore {
             straight: observable,
             ruilCoolBloodedMemory: observable,
             knownMap: observable,
+            nextLoc: observable,
             availableMap: computed,
             addStealth: action,
             addStraight: action,
             changeMoney: action,
             ruilRemember: action,
+            removeBlock: action,
+            setHint: action,
         })
         this.stealth = 1;
         this.money = 100;
         this.straight = 1;
         this.ruilCoolBloodedMemory = false;
         this.knownMap = [[0,0,0]];
+        this.blocked = [[0,-1,1]];
+        this.nextLoc = [0,1,-1];
     }
 
     addStealth() {
@@ -38,6 +45,14 @@ export class RootStore {
 
     changeMoney(value: number) {
         this.money += value;
+    }
+
+    setHint(value: [number,number,number]) {
+        this.nextLoc = value;
+    }
+
+    removeBlock(value: [number,number,number]) {
+        this.blocked = this.blocked.filter((hex) => !(hex[0] === value[0] && hex[1] === value[1] && hex[2] === value[2]));
     }
 
     ruilRemember() {

@@ -1,11 +1,13 @@
 import { useContext } from 'react';
 import { Choice, getStages } from '../../configGame/stages';
 import { StageContext } from '../Cycle/Context';
+import './styles.css';
 
 export const StageAnswer = () => {
   const { stageID, setStage } = useContext(StageContext);
 
   const stage = getStages(stageID);
+  const img = stage.choices?.image;
   const choises = stage.choices?.list || [];
 
   const chooseAnswer = (item: Choice) => {
@@ -14,6 +16,7 @@ export const StageAnswer = () => {
   }
   return (
     <>
+      <img alt="" src={img} />
       {choises.map(item => (
         <button key={item.text} onClick={() => chooseAnswer(item)}>{item.text}</button>
       ))}

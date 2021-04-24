@@ -33,6 +33,14 @@ export const StageText = () => {
             <div className='mainText'>
                 {lines[number].text}
             </div>
+            <div className='buttonsWrapper'>
+                <div className='buttonOne'>
+                    <button className='button'>MoveBack</button>
+                </div>
+                <div className='buttonTwo'>
+                    <button className='button'>MoveForward</button>
+                </div>
+            </div>
         </div>
     );
 }

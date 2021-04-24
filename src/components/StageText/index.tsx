@@ -10,7 +10,7 @@ export const StageText = () => {
     const { setVariant } = useContext(VariantContext);
 
     const stage = getStages(stageID);
-    const lines = stage.lines;
+    const lines = stage.lines || [];
     const [number, setNumber] = useState(0);
 
     useEffect(() => {

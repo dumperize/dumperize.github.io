@@ -1,17 +1,16 @@
 import { useContext } from 'react';
 import { Choice, getStages } from '../../configGame/stages';
-import { VARIANT_STAGE } from '../../configGame/variantStage';
-import { StageContext, VariantContext } from '../Cycle/Context';
+import { StageContext } from '../Cycle/Context';
 
 export const StageAnswer = () => {
-  const { stageID } = useContext(StageContext);
-  const { setVariant } = useContext(VariantContext);
+  const { stageID, setStage } = useContext(StageContext);
 
   const stage = getStages(stageID);
-  const choises = stage.choices || [];
+  const choises = stage.choices?.list || [];
 
   const chooseAnswer = (item: Choice) => {
-    setVariant(VARIANT_STAGE.MAP);
+    item.effect && item.effect();
+    setStage(item.nextStage);
   }
   return (
     <>

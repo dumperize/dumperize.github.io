@@ -35,10 +35,10 @@ export const StageText = () => {
             </div>
             <div className='buttonsWrapper'>
                 <div className='buttonOne'>
-                    <button className='button'>MoveForward</button>
+                    <button className='button'>MoveBack</button>
                 </div>
                 <div className='buttonTwo'>
-                    <button className='button'>MoveBack</button>
+                    <button className='button'>MoveForward</button>
                 </div>
             </div>
         </div>

@@ -17,8 +17,11 @@ export const StageAnswer = () => {
   return (
     <>
       <img alt="" src={img} />
-      {choises.map(item => (
-        <button key={item.text} onClick={() => chooseAnswer(item)}>{item.text}</button>
+      {choises.map((item, index) => (
+          // @ts-ignore
+          <div className={ 'one' + index}>
+            <button className='button' key={item.text} onClick={() => chooseAnswer(item)}>{item.text}</button>
+          </div>
       ))}
     </>
   );

@@ -6,10 +6,10 @@ import Cycle from './components/Cycle';
 function App() {
   return (
     // <div className="App">
-    //   <header className="App-header">
+    <header className="App-header">
         <Cycle />
-     
-    //   </header>
+
+    </header>
     // </div>
   );
 }

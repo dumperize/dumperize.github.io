@@ -16,6 +16,10 @@ export const StageAnswer = () => {
   }
   return (
     <>
+      <div className='mainText'>
+        {stage.choices?.character && <b style={{ textTransform: 'uppercase' }}>{stage.choices?.character}<br/></b>}
+        {stage.choices?.text}
+      </div>
       <img alt="" src={img} />
       {choises.map((item, index) => (
           // @ts-ignore

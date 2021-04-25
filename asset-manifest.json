@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/elfgame/static/css/main.315f90af.chunk.css",
+    "main.js": "/elfgame/static/js/main.232957e0.chunk.js",
+    "main.js.map": "/elfgame/static/js/main.232957e0.chunk.js.map",
+    "runtime-main.js": "/elfgame/static/js/runtime-main.8b06d145.js",
+    "runtime-main.js.map": "/elfgame/static/js/runtime-main.8b06d145.js.map",
+    "static/js/2.4cb7a7d9.chunk.js": "/elfgame/static/js/2.4cb7a7d9.chunk.js",
+    "static/js/2.4cb7a7d9.chunk.js.map": "/elfgame/static/js/2.4cb7a7d9.chunk.js.map",
+    "static/js/3.a3a6ba8c.chunk.js": "/elfgame/static/js/3.a3a6ba8c.chunk.js",
+    "static/js/3.a3a6ba8c.chunk.js.map": "/elfgame/static/js/3.a3a6ba8c.chunk.js.map",
+    "index.html": "/elfgame/index.html",
+    "static/css/main.315f90af.chunk.css.map": "/elfgame/static/css/main.315f90af.chunk.css.map",
+    "static/js/2.4cb7a7d9.chunk.js.LICENSE.txt": "/elfgame/static/js/2.4cb7a7d9.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8b06d145.js",
+    "static/js/2.4cb7a7d9.chunk.js",
+    "static/css/main.315f90af.chunk.css",
+    "static/js/main.232957e0.chunk.js"
+  ]
+}

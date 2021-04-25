@@ -16,11 +16,12 @@ export type THexProps = {
 export const GameHex = observer((props: THexProps) => {
     const onClick = useCallback(
         () => {
-            if (rootStore.availableMap.some(mapHex => props.q === mapHex[0] && props.r === mapHex[1] && props.s === mapHex[2])) {
-                if (!rootStore.blocked.some(mapHex => props.q === mapHex[0] && props.r === mapHex[1] && props.s === mapHex[2])) {
-                    rootStore.openHex([props.q, props.r, props.s])
+            const f = (mapHex:[number,number,number]) => props.q === mapHex[0] && props.r === mapHex[1] && props.s === mapHex[2];
+            if (rootStore.availableMap.some(f)) {
+                if (!rootStore.blocked.some(f)) {
+                    rootStore.openHex([props.q, props.r, props.s]);
+                    props.event && props.event();
                 }
-                props.event && props.event();
             }
         },
         [props],

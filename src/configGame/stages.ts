@@ -125,7 +125,7 @@ export const stages: Stage[] = [
       list: [
         {
           text: 'Сколько разбойников от Тишинской глади сейчас орудует в лесах?',
-          nextStage: 3,
+          nextStage: 300,
           effect: rootStore.addStraight,
         },
         {
@@ -137,13 +137,30 @@ export const stages: Stage[] = [
     }
   },
   {
-    id: 3,
+    id: 300,
     lines: [
       {
         character: CHARACTER.ELF_1,
         text: 'Ты же знаешь, что такую информацию никто тебе не даст даром.',
         image: '/images/tawerna-d.jpg',
       },
+    ],
+    choices: {
+      character: CHARACTER.TAURIEL,
+      image: '/images/tawerna-t.jpg',
+      text: '',
+      list: [
+        {
+          text: 'Отдать денег',
+          nextStage: 3,
+          effect: () => rootStore.changeMoney(-100),
+        },
+      ]
+    }
+  },
+  {
+    id: 3,
+    lines: [
       {
         text: `Тауриэль демонстративно кинула мешочек с золотом на стол.\n
         Дандерн ухмыльнулся.
@@ -159,7 +176,8 @@ export const stages: Stage[] = [
         text: 'Тебе стоит побеседовать с Лонбайтом. Кто как не он знает, что творится в его лесу?',
         image: '/images/tawerna-d.jpg',
       },
-    ]
+    ],
+    nextStage: 4,
   },
   {
     id: 4,
@@ -186,7 +204,8 @@ export const stages: Stage[] = [
         text: `С этим словами он ушел за новой пинтой эля.`,
         image: '/images/tawern-bg.jpeg',
       },
-    ]
+    ],
+    nextStage: 5,
   },
   {
     id: 5,
@@ -208,7 +227,7 @@ export const stages: Stage[] = [
         {
           text: 'Забрать',
           nextStage: 7,
-          effect: () => { },
+          effect: () => { rootStore.decStraight(); rootStore.changeMoney(100); },
         }
       ]
     }
@@ -366,7 +385,7 @@ export const stages: Stage[] = [
       },
       {
         character: CHARACTER.ELF_4,
-        image: '/images/2 локация_Лес_3.jpeg',
+        image: '/images/forest-e.jpg',
         text: `Меня зовут Эльгорт.`
       },
       {
@@ -389,7 +408,7 @@ export const stages: Stage[] = [
       },
       {
         character: CHARACTER.ELF_4,
-        image: '/images/2 локация_Лес_3.jpeg',
+        image: '/images/forest-e.jpg',
         text: `Это все Лонбайт! Он закупает стрелы в Тишинской глади, чтобы подставить их вожака.`
       },
       {
@@ -399,7 +418,7 @@ export const stages: Stage[] = [
       },
       {
         character: CHARACTER.ELF_4,
-        image: '/images/2 локация_Лес_3.jpeg',
+        image: '/images/forest-e.jpg',
         text: `Не знаю…`
       },
       {
@@ -408,7 +427,7 @@ export const stages: Stage[] = [
       },
       {
         character: CHARACTER.ELF_4,
-        image: '/images/2 локация_Лес_3.jpeg',
+        image: '/images/forest-e.jpg',
         text: `Я правда не знаю! Мне сказали просто обворовывать богачей на дороге леса.Я больше ничего не знаю.`
       },
       {
@@ -448,7 +467,7 @@ export const stages: Stage[] = [
         image: '/images/elfGirlForest.jpeg',
       },
     ],
-    nextStage: 13,
+    nextStage: 1300,
   },
   {
 
@@ -485,7 +504,11 @@ export const stages: Stage[] = [
         text: 'Тауриэль ничего не ответила.Все что она сейчас знала: следующий кого пронзит ее стрела, будет наказан за каждого убитого на этой дороге.'
       },
     ],
-    nextStage: 13,
+    nextStage: 1300,
+  },
+  {
+    id: 1300,
+    isMap: true,
   },
   {
     id: 13,
@@ -526,6 +549,16 @@ export const stages: Stage[] = [
         text: 'Руил лишь молча кивнул, а Тауриэль повернула ручку в хижину.',
         image: '/images/mountains-bg.jpeg',
       },
+    ],
+    nextStage: 1302,
+  },
+  {
+    id: 1302,
+    isMap: true,
+  },
+  {
+    id: 1303,
+    lines: [
       {
         text: 'Лонбайт сидел за столом и изучал карты леса. Когда дверь открылась, мужчина даже не поднял головы, лишь тяжело вздохнул.',
         image: '/images/house-bg.jpeg',
@@ -665,48 +698,48 @@ export const stages: Stage[] = [
     id: 15,
     lines: [
       {
-        image: '/images/house-r.jpg',
+        image: '/images/house-bg.jpeg',
         text: `Лучник вне хижины окажется быстрее и смертельно ранит вас.\n
 Вы мертвы.Руил убьет Лонбайта и захватит власть над лесом.\n
 Игра для вас закончена.
         `
       },
       {
-        image: '/images/house-r.jpg',
+        image: '/images/house-bg.jpeg',
         text: `Тауриэль запомнят как предателя, соучастника Лонбайта.Вас обоих обвинят в грабеже и все преступления повесят на ваши плечи.`
       },
-    ]
-    /// FINISH!!
+    ],
+    nextStage: 17,
   },
   {
-    id: 15,
+    id: 16,
     lines: [
       {
-        image: '/images/house-r.jpg',
+        image: '/images/house-bg.jpeg',
         text: `Руил начал прохаживаться по хижине, рассматрива карты.\n
 Он был уверен в себе и своих действиях.
         `
       },
       {
-        image: '/images/house-r.jpg',
+        image: '/images/house-bg.jpeg',
         text: `Тауриэль почувствовала как кто - то аккуратно тронул ее плечо.\n
 Лонбайт показал, что в его руке находится маленький нож, а затем кивнул в сторону окна.
         `
       },
       {
-        image: '/images/house-r.jpg',
+        image: '/images/house-bg.jpeg',
         text: `Эльфийка заметила среди скал лучника.`
       },
       {
-        image: '/images/house-r.jpg',
+        image: '/images/house-bg.jpeg',
         text: `Она медленно кивнула головой.`
       },
       {
-        image: '/images/house-r.jpg',
+        image: '/images/house-bg.jpeg',
         text: `В следующее же мгновение Лонбайт метко запустил нож в лучника, а Тауриэль стрелу в спину Руилу.`
       },
       {
-        image: '/images/house-r.jpg',
+        image: '/images/house-bg.jpeg',
         text: `Мужчина упал на холодный пол хижины.`
       },
       {
@@ -720,21 +753,30 @@ export const stages: Stage[] = [
         image: '/images/house-t.jpg',
       },
       {
-        image: '/images/house-r.jpg',
+        image: '/images/house-bg.jpeg',
         text: `И девушка закончила то, что начала мгновением раньше.`
       },
       {
-        image: '/images/house-r.jpg',
+        image: '/images/house-bg.jpeg',
         text: `Поздравляем! Игра окончена.\n
 Вы смогли найти главного злодея и одержать над ним победу.
         `
       },
       {
-        image: '/images/house-r.jpg',
+        image: '/images/house-bg.jpeg',
         text: `Тауриэль запомнят как бравого воина, готового бороться за правду.\n
 Ей было сложно пережить предательство лучшего друга, но она знала, что дальше ее и Северную долину ждет только светлое будущее.
         `
       },
+    ]
+  },
+  {
+    id: 17,
+    lines: [
+      {
+        text: 'КОНЕЦ',
+        image: '/images/house-bg.jpeg',
+      }
     ]
   }
 ];

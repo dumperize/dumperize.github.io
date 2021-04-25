@@ -1,0 +1,32 @@
+.shapeText-root {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+
+.shapeText-wrapper {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.shapeText-mainText {
+    align-items: center;
+    padding: 2rem;
+    max-height: 10rem;
+    background-color: white;
+    opacity: 0.6;
+    border-radius: 50px;
+    font-size: 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: absolute;
+    bottom: 2rem;
+    right: 50%;
+    transform: translate(50%);
+    width: 80%;
+}

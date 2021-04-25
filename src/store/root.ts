@@ -31,7 +31,7 @@ export class RootStore {
         this.straight = 1;
         this.ruilCoolBloodedMemory = false;
         this.knownMap = [[0,0,0]];
-        this.blocked = [[0,-1,1],[4,-3,-1]];
+        this.blocked = [[0,-1,1],[4,-3,-1],[4,-4,-1]];
         this.nextLoc = [2,1,-3];
     }
 
@@ -41,6 +41,10 @@ export class RootStore {
 
     addStraight() {
         this.straight++
+    }
+
+    decStraight() {
+        this.straight--
     }
 
     changeMoney(value: number) {

@@ -24,23 +24,43 @@ const Cycle = () => {
         }
     }, [variant, stage, stageID]);
 
+    useEffect(() => {
+        if (stageID === 18) {
+            window.location.reload();
+        }
+    }, [stageID]);
+
     return (
         <StageContext.Provider value={{
             stageID,
             setStage: setNextStage
         }}>
             <VariantContext.Provider value={{ variant, setVariant }}>
+                <div style={{
+                    fontSize: 15,
+                    position: 'absolute',
+                    top: 0,
+                    right: 0,
+                    backgroundColor: '#787878',
+                    zIndex: 10,
+                    padding: 10,
+                    textAlign: 'right'
+                }}>
+                    <span>Скрытность: {rootStore.stealth}</span><br/>
+                    <span>Прямолинейность: {rootStore.straight}</span><br/>
+                    <span>Баблишко: {rootStore.money}</span>
+                </div>
                 {stage.isMap
                     ? (<GameMap />)
                     : (
-                        <div>
+                        <>
                             {
                                 {
                                     [VARIANT_STAGE.LINES]: () => <StageText />,
                                     [VARIANT_STAGE.CHOISES]: () => <StageAnswer />,
                                 }[variant]()
                             }
-                        </div>
+                        </>
                     )}
             </VariantContext.Provider>
         </StageContext.Provider>

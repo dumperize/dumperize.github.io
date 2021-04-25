@@ -1,17 +1,28 @@
-.root {
+.shapeAnswer-root {
+    width: 100%;
+    min-height: 100vh;
     position: relative;
 }
 
-.wrapper {}
-
-.img {
+.shapeAnswer-image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
 }
 
-.mainText {
+.shapeAnswer-controls {
     position: absolute;
-    top: 200px;
+    bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    right: 50%;
+    transform: translate(50%);
+    width: 80%;
+}
+
+.shapeAnswer-mainText {
     left: 0;
     padding: 1.5rem;
     margin-top: 30rem;
@@ -26,26 +37,12 @@
     overflow-x: hidden;
     white-space: pre-wrap;
     line-height: 1.1em;
+    margin-bottom: 2rem;
 }
-
-.one0 {
+.shapeAnswer-buttons{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
-    position: absolute;
-    top: 50%;
-    left: 40%;
-    cursor: pointer;
-}
-
-.one1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: absolute;
-    top: 42%;
-    left: 40%;
-    cursor: pointer;
 }
 
 .button {
@@ -53,4 +50,10 @@
     width: 15rem;
     border-radius: 50px;
     background: linear-gradient(145deg, #f0f0f0, #cacaca);
+    margin-right: 2rem;
+    width: 100%;
+    font-size: 18px;
+}
+.button:last-child {
+    margin-right: 0;
 }

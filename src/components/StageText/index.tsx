@@ -26,12 +26,11 @@ export const StageText = () => {
     }, [number]);
 
     return (
-        <div className="root">
-            <div className='wrapper'>
-                <img alt="" className='img' src={lines[number].image} />
+        <div className="shapeText-root">
+            <div className='shapeText-wrapper' style={{ backgroundImage: `url(${lines[number].image})` }}>
             </div>
-            <div className='mainText'>
-                {lines[number].character && <b style={{ textTransform: 'uppercase' }}>{lines[number].character}<br/></b>}
+            <div className='shapeText-mainText'>
+                {lines[number].character && <b style={{ textTransform: 'uppercase' }}>{lines[number].character}:<br /></b>}
                 {lines[number].text}
             </div>
         </div>

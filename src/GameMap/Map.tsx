@@ -95,16 +95,16 @@ export function GameMap() {
                 }} />
                 {/* <GameHex q={-1} r={1} s={0} type={'mountains'} event={() => console.log('mountains')} /> */}
             </Layout>
-            <Pattern id="unknown" link="/images/map/unknown.png" size={hexagonSize} />
+            <Pattern id="unknown" link="images/map/unknown.png" size={hexagonSize} />
             {/* You can define multiple patterns and switch between them with "fill" prop on Hexagon */}
-            <Pattern id="forest" link="/images/map/forest-1.png" size={hexagonSize} />
-            <Pattern id="castle" link="/images/map/castle-1.png" size={hexagonSize} />
-            <Pattern id="road" link="/images/map/road-1.png" size={hexagonSize} />
-            <Pattern id="waterfall" link="/images/map/waterfall-1.jpg" size={hexagonSize} />
-            <Pattern id="cave" link="/images/map/cave-1.png" size={hexagonSize} />
-            <Pattern id="desert" link="/images/map/desert-1.png" size={hexagonSize} />
-            <Pattern id="mountains" link="/images/map/mountains-1.png" size={hexagonSize} />
-            <Pattern id="fields" link="/images/map/fields-1.png" size={hexagonSize} />
+            <Pattern id="forest" link="images/map/forest-1.png" size={hexagonSize} />
+            <Pattern id="castle" link="images/map/castle-1.png" size={hexagonSize} />
+            <Pattern id="road" link="images/map/road-1.png" size={hexagonSize} />
+            <Pattern id="waterfall" link="images/map/waterfall-1.jpg" size={hexagonSize} />
+            <Pattern id="cave" link="images/map/cave-1.png" size={hexagonSize} />
+            <Pattern id="desert" link="images/map/desert-1.png" size={hexagonSize} />
+            <Pattern id="mountains" link="images/map/mountains-1.png" size={hexagonSize} />
+            <Pattern id="fields" link="images/map/fields-1.png" size={hexagonSize} />
         </HexGrid>
     </div>
 }
